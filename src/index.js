@@ -1,9 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+/* eslint-disable */
+import React from "react";
+import { render } from "react-dom";
+import { App } from "./App";
+import "antd/dist/antd.css";
+import "./index.css";
+import leanCloudCreds  from './configs/leanCloudCreds';
 
-ReactDOM.render(
+const { appId, appKey, serverURLs } = leanCloudCreds;
+AV.init({
+  appId,
+  appKey,
+  serverURLs
+});
+
+render(
   <App />,
   document.getElementById('root')
 );
