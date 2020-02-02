@@ -22,14 +22,16 @@ function Tables(props) {
         setColumnSettings(columnConfig);
     }
     function onTableChange(pagination, filters, sorter, extra) {
-        let filteredData = tableData.filter(data => {
-            return filters["attributes.category"].length
-                ? filters["attributes.category"].some(
-                      filterValue => filterValue === data.attributes.category
-                  )
-                : tableData;
-        });
-        setTableData(filteredData);
+        if (filters) {
+            let filteredData = tableData.filter(data => {
+                return filters["attributes.category"].length
+                    ? filters["attributes.category"].some(
+                          filterValue => filterValue === data.attributes.category
+                      )
+                    : tableData;
+            });
+            setTableData(filteredData);
+        }
     }
     useEffect(() => {
         fetchFromLeanCloud(props.tableName).then(tableData => {
