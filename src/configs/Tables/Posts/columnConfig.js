@@ -25,7 +25,7 @@ export const columnConfig = [
             { text: "GeekCode", value: "GeekCode" },
             { text: "GeekLove", value: "GeekLove" }
         ],
-        width: 100
+        width: 130
     },
     {
         title: "内容",
