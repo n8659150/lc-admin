@@ -12,6 +12,7 @@ function Tables(props) {
     const [tableData, setTableData] = useState([]);
     function onColumnSelectionChange(checkedValues) {
         let columnConfig = [...props.tableSettings.fixedColumnSets];
+        console.log(props.tableSettings);
         props.tableSettings.selectableColumnSets.forEach(selectableColumn => {
             checkedValues.forEach(selectedValue => {
                 if (selectableColumn.key === selectedValue) {
@@ -51,14 +52,7 @@ function Tables(props) {
                 </Breadcrumb>
                 <CheckboxGroup
                     options={props.tableSettings.antdSelectOptionMapping}
-                    defaultValue={[
-                        "id",
-                        "attributes.email",
-                        "attributes.emailVerified",
-                        "attributes.mobileVerified",
-                        "createdAt",
-                        "updatedAt"
-                    ]}
+                    defaultValue={props.tableSettings.antdDefaultSelected}
                     onChange={onColumnSelectionChange}
                 />
             </div>
