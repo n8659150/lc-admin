@@ -6,9 +6,6 @@ const CheckboxGroup = Checkbox.Group;
 const { Search } = Input;
 
 function Tables(props) {
-    const tableName = props.name;
-    let reducerInit = {};
-    reducerInit[tableName] = [];
     const [columnSettings, setColumnSettings] = useState(props.tableSettings.columnConfig);
     const [tableData, setTableData] = useState([]);
     const [rawData, setRawData] = useState([]);
